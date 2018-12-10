@@ -30,6 +30,12 @@ Setup.
 3.  Application has the needed settings gathered in the application.properties file located in src/main/sources folder.
     In the same folder one can also find the "schema.sql" that needs to be imported.
 
+REST Endpoints. Given that we have not changes the server port, we have can invoke the endpoints on http://localhost:8080/.
+
+Orders Endpoint
+    GET:        http://localhost:8080/orders
+    Params:     start-date (optional), end-date (optional), the pattern is yyyy-MM-dd'T'HH:mm:ss
+    Example:    http://localhost:8080/orders/?start-date=2018-01-20T01:30:00&end-date=2018-01-22T01:30:00
 
 
 
