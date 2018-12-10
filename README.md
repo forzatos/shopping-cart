@@ -111,5 +111,12 @@ REST Endpoints.
     Example:    http://localhost:8080/carts/611906e-301a-433e-8773-7b3b87fae8c2/add/1af55471-0cdf-48b8-ad30-8c5c0000add2
 
 
+Info:
+When a product is created/updated/deleted an event is sent via RabbitMQ to the Cart Topic/Exchange.
+This event triggers the service to replicate the data.
 
+The same happens when the checkout endpoint is triggered, an event is then sent via RabbitMQ to the Order Topic/Exchange.
+This event triggers the order creation.
 
+This is useful if one wants to split the three embedded services into three different ones. 
+Easy fix by just creating new project and copying the wanted packages.
