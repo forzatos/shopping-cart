@@ -26,6 +26,7 @@ Generic packages are:
 
 Setup.
 
+
 1.  RabbitMQ must be installed on the machine.
 
 2.  MySQL needs to be installed and the provided file "schema.sql" must be imported so that the tables can be created.
