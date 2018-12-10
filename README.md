@@ -18,10 +18,15 @@ I have structured the application so that it can easily be converted two three d
 The package structure is divided in three 4 different parts so this is easy to achieve by just creating new project and including the wanted packages.
 
 Generic packages are:
+
     com.shoppingcart.cart.*,
+
     com.shoppingcart.product.*,
+
     com.shoppingcart.order.*,
+
     com.shoppingcart.common.*,
+
 
 
 Setup.
