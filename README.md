@@ -23,6 +23,7 @@ Generic packages are:
     com.shoppingcart.order.*,
     com.shoppingcart.common.*,
 
+
 Setup.
 
 1.  RabbitMQ must be installed on the machine.
