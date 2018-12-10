@@ -28,13 +28,18 @@ Generic packages are:
     com.shoppingcart.common.*,
 
 Setup.
+
 1.  RabbitMQ must be installed on the machine.
+
 2.  MySQL needs to be installed and the provided file "schema.sql" must be imported so that the tables can be created.
     (Easy thing if someone does it via MySQL workbench or the MySQL command line).
+
 3.  Application has the needed settings gathered in the application.properties file located in src/main/sources folder.
     In the same folder one can also find the "schema.sql" that needs to be imported.
 
-REST Endpoints. Given that we have not changes the server port, we have can invoke the endpoints on http://localhost:8080/.
+
+REST Endpoints. 
+Given that we have not changes the server port, we have can invoke the endpoints on http://localhost:8080/.
 
 Orders Endpoint
     GET:        http://localhost:8080/orders
