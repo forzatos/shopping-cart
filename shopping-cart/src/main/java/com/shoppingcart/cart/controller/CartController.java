@@ -53,8 +53,9 @@ public class CartController {
 	}
 
 	@GetMapping(path = "/checkout/{id}")
-	public ResponseEntity<?> triggerCheckout(@RequestHeader(value = "user-email") String userEmail,
-			@PathVariable(name = "id") UUID id) {
+	public ResponseEntity<?> triggerCheckout(
+			@RequestHeader(value = "user-email", required = true) String userEmail,
+			@PathVariable(name = "id", required = true) UUID id) {
 		if (userEmail == null || userEmail.trim().length() == 0) {
 			throw new CustomMethodArgumentNotValidException("user email cannot be null or empty.");
 		}
@@ -66,7 +67,7 @@ public class CartController {
 			throw new CartCheckoutNoProductsException("cart has no products, cannot checkout.");
 		}
 		cartService.triggerCheckout(id, userEmail);
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 
 	@GetMapping(path = "/{id}/add/{productId}")
