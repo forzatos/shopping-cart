@@ -47,16 +47,43 @@ REST Endpoints.
 
     Orders Endpoint
 
-    GET:        http://localhost:8080/orders
+    GET:        http://localhost:8080/orders        Retrieves the orders with a date filter.
     Params:     start-date (optional), end-date (optional), the pattern is yyyy-MM-dd'T'HH:mm:ss
     Example:    http://localhost:8080/orders/?start-date=2018-01-20T01:30:00&end-date=2018-01-22T01:30:00
     
     
-    Orders Endpoint
+    Products Endpoint
 
-    GET:        http://localhost:8080/orders
-    Params:     start-date (optional), end-date (optional), the pattern is yyyy-MM-dd'T'HH:mm:ss
-    Example:    http://localhost:8080/orders/?start-date=2018-01-20T01:30:00&end-date=2018-01-22T01:30:00
+    GET:        http://localhost:8080/products      Retrieves all the products
+    Params:     no parameters needed
+    Example:    http://localhost:8080/products
+
+
+    GET:        http://localhost:8080/products/id   Retrieves the product based on its id
+    Params:     id (UUID to string, mandatory)
+    Example:    http://localhost:8080/products/3611906e-301a-433e-8773-7b3b87fae8c2
+
+
+    PUT:        http://localhost:8080/products      Retrieves the product based on its id
+    Params:     JSON Product payload in the body
+    Example:    http://localhost:8080/products
+
+
+    DELETE:     http://localhost:8080/products/id   Deletes the product based on its id
+    Params:     JSON Product payload in the body
+    Example:    http://localhost:8080/products/3611906e-301a-433e-8773-7b3b87fae8c2
+
+    POST:       http://localhost:8080/products/     Creates a new product
+    Params:     JSON Product payload in the body    (without the id, its autocreated)
+    Example:    http://localhost:8080/products/3611906e-301a-433e-8773-7b3b87fae8c2
+
+
+    Product Payload:
+    {
+        "id": 115,
+        "name": "testtesttest",
+        "price": 110.05
+    }
 
 
 
