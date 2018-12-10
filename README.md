@@ -70,12 +70,12 @@ REST Endpoints.
 
 
     DELETE:     http://localhost:8080/products/id   Deletes the product based on its id
-    Params:     JSON Product payload in the body
+    Params:     id (UUID to string, mandatory)
     Example:    http://localhost:8080/products/3611906e-301a-433e-8773-7b3b87fae8c2
 
     POST:       http://localhost:8080/products/     Creates a new product
     Params:     JSON Product payload in the body    (without the id, its autocreated)
-    Example:    http://localhost:8080/products/3611906e-301a-433e-8773-7b3b87fae8c2
+    Example:    http://localhost:8080/products/
 
 
     Product Payload:
@@ -84,6 +84,32 @@ REST Endpoints.
         "name": "testtesttest",
         "price": 110.05
     }
+
+
+    Carts Endpoint
+    For this one we need a to add a header key/value. Key is "user-email" and value is the email.
+    A simple solution to show that it is working, could be JWT instead.
+
+    GET:        http://localhost:8080/carts         Creates one cart the the user and returns thed ata
+    Params:     Header parameter, user-email / email
+    Example:    http://localhost:8080/carts
+
+    GET:        http://localhost:8080/carts/id       Retrieves the cart for the user and the calculated price
+    Params:     Header parameter, user-email / email and id (UUID to string, mandatory)
+    Example:    http://localhost:8080/carts/3611906e-301a-433e-8773-7b3b87fae8c2
+
+    GET:        http://localhost:8080/carts/checkout/id   Triggers the checkout
+    Params:     Header parameter, user-email / email and id (UUID to string, mandatory)
+    Example:    http://localhost:8080/carts/checkout/611906e-301a-433e-8773-7b3b87fae8c2
+    
+    GET:        http://localhost:8080/carts/id/remove/productId   Removes a product from the cart
+    Params:     Header parameter, user-email / email, cart id (UUID to string, mandatory) and product id (UUID to string, mandatory)
+    Example:    http://localhost:8080/carts/611906e-301a-433e-8773-7b3b87fae8c2/remove/1af55471-0cdf-48b8-ad30-8c5c0000add2
+    
+    GET:        http://localhost:8080/carts/id/add/productId   Adds a product from the cart
+    Params:     Header parameter, user-email / email, cart id (UUID to string, mandatory) and product id (UUID to string, mandatory)
+    Example:    http://localhost:8080/carts/611906e-301a-433e-8773-7b3b87fae8c2/add/1af55471-0cdf-48b8-ad30-8c5c0000add2
+
 
 
 
