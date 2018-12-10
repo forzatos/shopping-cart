@@ -20,11 +20,8 @@ The package structure is divided in three 4 different parts so this is easy to a
 Generic packages are:
 
     com.shoppingcart.cart.*,
-
     com.shoppingcart.product.*,
-
     com.shoppingcart.order.*,
-
     com.shoppingcart.common.*,
 
 Setup.
