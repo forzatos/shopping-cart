@@ -52,7 +52,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testCreateCartForEmailWithValidHeaderValues() throws Exception {
+	public void testStatusCreateCartForEmailWithValidHeaderValues() throws Exception {
 		Mockito.when(cartService.getCreatedCartForEmail(Mockito.any(String.class))).thenReturn(new CartDTO());
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithCorrectEmail);
 		ResponseEntity<CartDTO> result = template.exchange("/carts", HttpMethod.GET, response, CartDTO.class);
@@ -60,7 +60,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void tetsCreateCartForEmailWithNoHeaderValues() throws Exception {
+	public void tetsStatusCreateCartForEmailWithNoHeaderValues() throws Exception {
 		Mockito.when(cartService.getCreatedCartForEmail(Mockito.any(String.class))).thenReturn(new CartDTO());
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithoutKeyValues);
 		ResponseEntity<CartDTO> result = template.exchange("/carts", HttpMethod.GET, response, CartDTO.class);
@@ -68,7 +68,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void tetsCreateCartForEmailWithInvalidEmailHeaderValues() throws Exception {
+	public void tetsStatusCreateCartForEmailWithInvalidEmailHeaderValues() throws Exception {
 		Mockito.when(cartService.getCreatedCartForEmail(Mockito.any(String.class))).thenReturn(new CartDTO());
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithInvalidEmail);
 		ResponseEntity<CartDTO> result = template.exchange("/carts", HttpMethod.GET, response, CartDTO.class);
@@ -76,7 +76,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testFindCartByEmailAndIdWithInvalidEmailHeaderValues() throws Exception {
+	public void testStatusFindCartByEmailAndIdWithInvalidEmailHeaderValues() throws Exception {
 		Mockito.when(cartService.findCartByIdAndEmail(Mockito.any(UUID.class), Mockito.any(String.class)))
 				.thenReturn(new CartDTO());
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithInvalidEmail);
@@ -85,7 +85,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testFindCartByEmailAndIdThatExists() throws Exception {
+	public void testStatusFindCartByEmailAndIdThatExists() throws Exception {
 		Mockito.when(cartService.findCartByIdAndEmail(Mockito.any(UUID.class), Mockito.any(String.class)))
 				.thenReturn(new CartDTO());
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithCorrectEmail);
@@ -94,7 +94,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testFindCartByEmailAndIdThatDoesNotExists() throws Exception {
+	public void testStatusFindCartByEmailAndIdThatDoesNotExists() throws Exception {
 		Mockito.when(cartService.findCartByIdAndEmail(Mockito.any(UUID.class), Mockito.any(String.class)))
 				.thenReturn(null);
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithCorrectEmail);
@@ -103,7 +103,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testAddProductToCart() throws Exception {
+	public void testStatusAddProductToCart() throws Exception {
 		Mockito.when(cartService.findCartByIdAndEmail(Mockito.any(UUID.class), Mockito.any(String.class)))
 				.thenReturn(new CartDTO());
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithCorrectEmail);
@@ -113,7 +113,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testAddProductToCartNotFound() throws Exception {
+	public void testStatusAddProductToCartNotFound() throws Exception {
 		Mockito.when(cartService.findCartByIdAndEmail(Mockito.any(UUID.class), Mockito.any(String.class)))
 				.thenReturn(null);
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithCorrectEmail);
@@ -123,7 +123,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testRemoveProductFromCartNotFound() throws Exception {
+	public void testStatusRemoveProductFromCartNotFound() throws Exception {
 		Mockito.when(cartService.findCartByIdAndEmail(Mockito.any(UUID.class), Mockito.any(String.class)))
 				.thenReturn(null);
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithCorrectEmail);
@@ -133,7 +133,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testRemoveProductFromCart() throws Exception {
+	public void testStatusRemoveProductFromCart() throws Exception {
 		Mockito.when(cartService.findCartByIdAndEmail(Mockito.any(UUID.class), Mockito.any(String.class)))
 				.thenReturn(new CartDTO());
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithCorrectEmail);
@@ -143,7 +143,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testTriggerCheckoutCartNotFound() throws Exception {
+	public void testStatusTriggerCheckoutCartNotFound() throws Exception {
 		Mockito.when(cartService.findCartByIdAndEmail(Mockito.any(UUID.class), Mockito.any(String.class)))
 				.thenReturn(null);
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithCorrectEmail);
@@ -153,7 +153,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testTriggerCheckoutCartFoundWithoutProducts() throws Exception {
+	public void testStatusTriggerCheckoutCartFoundWithoutProducts() throws Exception {
 		Mockito.when(cartService.findCartByIdAndEmail(Mockito.any(UUID.class), Mockito.any(String.class)))
 				.thenReturn(new CartDTO());
 		HttpEntity<Object> response = TestHelperUtilities.getHttpEntity("", headersWithCorrectEmail);
@@ -163,7 +163,7 @@ public class CartControllerTest {
 	}
 
 	@Test
-	public void testTriggerCheckout() throws Exception {
+	public void testStatusTriggerCheckout() throws Exception {
 		List<CartProductDTO> cpDTOs = new ArrayList<>();
 		cpDTOs.add(new CartProductDTO());
 		CartDTO cartDTO = Mockito.mock(CartDTO.class);
